@@ -17,3 +17,17 @@
   + sudo docker rm $c
   Delete the busybox image:
   + sudo docker image rm busybox
+
+### Part 2: Test on basic docker compose
+- Check version of your docker compose: docker --version
+- Write a `docker-compose.yaml` file with following requirements:
+    * two services name `service-1` and `service-2`.
+	* `service-1` will use image `busybox` and `service-2` will use image `hello-world`.
+	* at least 1 folder in your PC will be mounted inside container of `service-1`.
+	* `service-1` should print out `Here is busybox` if you don't run it in detached mode.
+- Use docker-compose to run the `docker-compose.yaml` file you have just written and then stop all services:
+  + sudo docker-compose -f docker-compose.yaml up
+  + + sudo docker-compose -f docker-compose.yaml stop (down in case of remove)
+- Use docker-compose to run the `docker-compose.yaml` file again in detached mode and then stop all services:
+  + sudo docker-compose -f docker-compose.yaml up -d
+  + + sudo docker-compose -f docker-compose.yaml stop (down in case of remove)
