@@ -1,0 +1,19 @@
+### Part 1: Test on basic docker commands
+
+- Pull docker image `busybox`: sudo docker pull busybox
+- Run `busybox` such that there is a text "Hello world!" printed out on the terminal: sudo docker run busybox echo "Hello World!" 
+- Use command to check all containers including exited ones: sudo docker ps -a 
+- Run `busybox` in interative mode with bash shell. : sudo docker run -it busybox
+- Run `busybox` in detached mode and also make sure the container does not exit (Hint: you can use command `sleep infinity`): sudo docker run -d busybox sleep infinity
+- Stop and then remove all running container:
+  + c= $(sudo docker ps -q): Take the IDs of all running containers with option -q of docker ps 
+  + sudo docker stop $c
+  + sudo docker rm $c
+- Check all available Docker images and then remove `busybox` image.
+  + sudo docker image ls -a
+  Stop and remove all the instances that use the busybox image:
+  + c=$(sudo docker ps -qaf ancestor=busybox)
+  + sudo docker stop $c
+  + sudo docker rm $c
+  Delete the busybox image:
+  + sudo docker image rm busybox
