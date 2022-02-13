@@ -1,0 +1,11 @@
+---
+version: '3.8'
+
+services:
+ service-main:
+  image: alpine
+  volumes:
+   - .:/repo
+  command: sleep infinity
+
+   
