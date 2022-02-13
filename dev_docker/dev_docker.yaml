@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
  service-main:
-  image: alpine
+  image: python:3.7-alpine
   volumes:
    - .:/repo
   command: sleep infinity
