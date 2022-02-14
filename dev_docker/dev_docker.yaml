@@ -7,7 +7,7 @@ services:
   image: my_training_image
   volumes:
    - .:/repo
-
-  command: sleep infinity
+  tty: true
+  
 
    

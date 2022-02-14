@@ -1,8 +1,8 @@
-#!/usr/bin/python
-
+#!/usr/bin/python3
+import matplotlib
+#matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import random
-
 x=[]
 y=[]
 for i in range (1,10):
@@ -12,3 +12,5 @@ for i in range (1,10):
 plt.plot(x,y)
 plt.ylabel("Random numbers")
 plt.show()
+
+    
