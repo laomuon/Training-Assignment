@@ -3,9 +3,12 @@ version: '3.8'
 
 services:
  service-main:
-  image: python:3.7-alpine
+  build: app
   volumes:
    - .:/repo
+  environment:
+   - TZ=Europe/Paris
+   - DEBIAN_FRONTEND=noninteractive
   command: sleep infinity
 
    
