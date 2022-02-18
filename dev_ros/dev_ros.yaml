@@ -4,5 +4,5 @@ version: '3.8'
 services:
  ros_service:
   build: app
-  image: my_ros_image
+  image: super-ros-node
   tty: true

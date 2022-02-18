@@ -1,0 +1,4 @@
+<launch>
+	<param name="gain" type="int" value="12" />
+	<node name="main_node" pkg="another_dev_ros_pkg" type="calc_service_server.py" />
+</launch>
