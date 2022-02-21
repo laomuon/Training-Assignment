@@ -20,7 +20,7 @@ RUN apt-get -y update  \
     && cd ~/catkin_ws/ \
     && catkin_make install\
     && . ~/catkin_ws/install/setup.bash \
-    && echo "source ~/catkin_ws/install/setup.bash" >> /.bashrc
+    && echo "source ~/catkin_ws/install/setup.bash" >> ~/.bashrc
 
 COPY cpp_simple_node.cpp /root/catkin_ws/src/dev_ros_pkg/src/cpp_simple_node.cpp
 COPY python_simple_node.py /root/catkin_ws/src/dev_ros_pkg/src/python_simple_node.py
@@ -37,8 +37,8 @@ COPY ros_run.sh /ros_run.sh
 COPY launch_file.launch /root/catkin_ws/src/another_dev_ros_pkg/launch/launch_file.launch
 
 RUN source opt/ros/$ROS_DISTRO/setup.bash \
-    && cd ~/catkin_ws/ \
-    && . ~/catkin_ws/install/setup.bash  \
+#    && cd ~/catkin_ws/ \
+#    && . ~/catkin_ws/install/setup.bash  \
     && cd ~/catkin_ws/src/dev_ros_pkg \
     && echo "catkin_python_setup()" >> CMakeLists.txt \
     && echo "add_executable(cpp_simple_node src/cpp_simple_node.cpp)" >> CMakeLists.txt \ 
@@ -58,5 +58,5 @@ FROM ros:noetic
 WORKDIR /root/
 COPY ros_run.sh /ros_run.sh
 COPY --from=builder root/catkin_ws/ ./catkin_ws
-
+RUN echo "source ~/catkin_ws/install/setup.bash" >> ~/.bashrc
 CMD ["/ros_run.sh"]
